@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# Playwright and debug 
+playwright-report/
+test-results/
+debug_amazon_item.html
+debug_exception.png
+debug_no_products.png
+trace.zip
+*.log
+
+# AI output / auto-generated traces
+ai_trace.json
+*.jsonl
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
