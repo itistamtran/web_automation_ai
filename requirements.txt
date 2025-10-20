@@ -1,0 +1,24 @@
+# Core browser automation
+playwright==1.47.0
+
+# Backend & async server
+fastapi==0.112.0
+uvicorn==0.30.1
+
+# Environment and configuration
+python-dotenv==1.0.1
+
+# Data validation / models
+pydantic==2.7.4
+
+# AI + HTTP requests
+openai>=1.40.0
+httpx>=0.27.0
+tqdm>=4.66.4
+
+# Async utilities and retry handling
+aiofiles>=23.2.1
+tenacity>=8.2.3
+
+# HTML parsing (required for BeautifulSoup)
+beautifulsoup4>=4.12.3
