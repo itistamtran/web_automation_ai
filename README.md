@@ -29,11 +29,11 @@ pip install -r requirements.txt
 python -m playwright install
 ```
 
-Optional for AI planner:
+For AI planner:
 
 ```bash
 cp .env.example .env
-# put your OpenAI API key into .env
+# place OpenAI API key into .env
 ```
 
 If an MCP server is not available, the AI planner automatically falls back to Playwright’s accessibility data. See `ai_mcp/mcp_client.py` for details.
@@ -126,10 +126,9 @@ This will open the interactive Swagger UI, where you can test both endpoints.
 
 ### Endpoints
 
-Runs the core Playwright automation for a fixed goal.
-
 - `POST /run-core`
-  Body:
+  Runs the core Playwright automation for a fixed goal.
+  Request Body:
 
   ```json
   {
@@ -138,21 +137,22 @@ Runs the core Playwright automation for a fixed goal.
   }
   ```
 
-  Returns a JSON status and result string.
-
-  - goal: the product or keyword you want the bot to search for
+  - goal: the product or keyword to search for.
   - headless: if true, runs invisibly (no browser window). If false, shows the browser.
 
 - `POST /run-ai`
-  Body:
+  Triggers the AI planner and executes an intelligent plan based on the goal.
+  Request Body:
+
   ```json
   {
     "goal": "find the pink wireless mouse under $40 on amazon",
     "headless": true
   }
   ```
-  Returns the AI plan and the execution result.
-  You can edit the goal and toggle headless directly from the Swagger form, then click Execute to run the automation remotely.
+
+  This returns both the AI plan and the execution result.
+  You can modify the goal and toggle headless directly in Swagger, then click “Execute” to test.
 
 ---
 
@@ -181,7 +181,6 @@ web_automation_ai/
 ├── requirements.txt        # Dependencies list
 ├── .env                    # Environment variables (for OpenAI API key)
 ├── .gitignore              # Excludes sensitive and auto-generated files
-├── ai_trace.json           # Saved trace logs of AI execution (auto-generated)
 └── README.md               # Project documentation
 ```
 
@@ -189,9 +188,10 @@ web_automation_ai/
 
 ## 5. Notes for Evaluators
 
-- Error handling is included for navigation, timeouts, and missing elements.
-- Logs print clear progress and a final message.
-- The AI planner validates JSON before execution and ignores unknown actions safely.
-- The MCP layer is optional but ready. Plug in any MCP Playwright server by editing MCPClient to call your server and return its data.
+- Includes detailed error handling for navigation, timeouts, and missing elements.
+- Logs show step-by-step progress and results clearly.
+- The AI planner validates JSON safely and skips unsupported actions.
+- The MCP layer is optional but ready. You can connect any Playwright MCP server by editing MCPClient.
+- The .gitignore file ensures sensitive and generated files are not committed.
 
 ---
